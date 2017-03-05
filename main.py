@@ -39,7 +39,7 @@ Builder.load_string("""
             Button:
                 text: 'Squad'
                 on_press:
-                    if(_screen_manager.current == 'home'): _screen_manager.transition.direction = 'leftusing github with ycharm'
+                    if(_screen_manager.current == 'home'): _screen_manager.transition.direction = 'left'
                     else: _screen_manager.transition.direction = 'right'
 
                     _screen_manager.current = 'squad'
