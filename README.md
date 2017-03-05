@@ -2,13 +2,13 @@
 
 <snippet>
   <content><![CDATA[
-# ${1:Project Name}
+# ${1:Pitchpal}
 
 TODO: Write a project description
 
 ## Installation
 
-TODO: Describe the installation process
+APK Unavailable.
 
 ## Usage
 
