@@ -1,0 +1,91 @@
+FloatLayout:
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'top'
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, .1
+            id: header
+            Label:
+                text: 'PitchPal'
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+        ScreenManager:
+            id: manager
+            size_hint: 1, .8
+            Screen:
+                id: screen1
+                name: 'first'
+                BoxLayout:
+                    orientation: 'vertical'
+                    Label:
+                        text: 'Welcome to PitchPal'
+                    Label:
+                        text: 'What is your team name?'
+                    TextInput:
+                        id: teamName
+            Screen:
+                id: screen2
+                name: 'second'
+                Label:
+                    text: 'Second screen'
+            Screen:
+                id: screen3
+                name: 'third'
+                BoxLayout:
+                    padding: 10
+                    spacing: 10
+                    orientation: 'vertical'
+                    Label:
+                        text: 'Matchday'
+                    Label:
+                        id: stopwatch
+                        text: '00:00.00'
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        Button:
+                            id: start_stop
+                            text: 'Start'
+                            on_press: app.start_stop()
+                        Button:
+                            id: eventLog
+                            text: 'Log New Event'
+                            on_press: app.matchEvent()
+
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'bottom'
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 5
+            spacing: 5
+            size_hint: 1, .1
+            NavButton:
+                text: 'first'
+                on_press:
+                    root.ids.manager.current = 'first'
+                    root.ids.manager.transition.direction = 'right'
+                    root.ids.manager.transition.duration = 0.1
+
+            NavButton:
+                text: 'second'
+                on_press:
+                    if(root.ids.manager.current == 'first'): root.ids.manager.transition.direction = 'left'
+                    else: root.ids.manager.transition.direction = 'right'
+                    root.ids.manager.transition.duration = 0.1
+                    root.ids.manager.current = 'second'
+
+            NavButton:
+                text: 'third'
+                on_press:
+                    root.ids.manager.current = 'third'
+                    root.ids.manager.transition.direction = 'left'
+                    root.ids.manager.transition.duration = 0.1
+
+<NavButton@Button>:
+    bold: True
+
+
