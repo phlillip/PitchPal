@@ -38,10 +38,23 @@ FloatLayout:
                     padding: 10
                     spacing: 10
                     orientation: 'vertical'
-                    Label:
-                        text: 'Matchday'
+                    BoxLayout:
+                        size_hint: 1, .1
+                        Label:
+                            size_hint_x: .4
+                            text: 'Home Team'
+                        Label:
+                            size_hint_x: .1
+                            text: '0'
+                        Label:
+                            size_hint_x: .1
+                            text: '0'
+                        Label:
+                            size_hint_x: .4
+                            text: 'Away Team'
                     Label:
                         id: stopwatch
+                        font_size: 100
                         text: '00:00.00'
                     BoxLayout:
                         orientation: 'horizontal'
@@ -53,6 +66,11 @@ FloatLayout:
                             id: eventLog
                             text: 'Log New Event'
                             on_press: app.matchEvent()
+                    Label:
+                        text: 'Videprinter'
+                    Label:
+                        id: commentary
+                        text: '...'
 
 
     AnchorLayout:
@@ -85,7 +103,5 @@ FloatLayout:
                     root.ids.manager.transition.direction = 'left'
                     root.ids.manager.transition.duration = 0.1
 
-<NavButton@Button>:
+<NavButton@Button>
     bold: True
-
-
